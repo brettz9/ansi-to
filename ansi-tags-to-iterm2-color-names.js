@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
 	black: 'Ansi 0 Color',
 	red: 'Ansi 1 Color',
