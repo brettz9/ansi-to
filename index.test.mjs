@@ -1,19 +1,17 @@
 import test from 'ava'
-
-import ansiTo from '.'
-
-const defaultColors = require('./colors/ansi-tag-html-colors-as-hex.json')
+import defaultColors from './colors/ansi-tag-html-colors-as-hex.json' with {type: 'json'}
+import ansiTo from './index.js'
 
 test('Plugin can load, override opts, and get ansi chunks', t => {
 	const MyPlugin = {
 		name: 'myplugin',
-		handler: (ansi, opts) => {
+		handler(ansi, opts) {
 			return {ansi, opts}
 		},
 		opts: {
 			myOpt1: 1337,
-			myOpt2: 'foo'
-		}
+			myOpt2: 'foo',
+		},
 	}
 
 	const handler = ansiTo.plugin(MyPlugin)
@@ -28,15 +26,17 @@ test('Plugin can load, override opts, and get ansi chunks', t => {
 			chunks: [{
 				type: 'text',
 				value: 'abcd',
-				position: {x: 0, y: 0, n: 0, raw: 0},
-				style: {}
-			}]
+				position: {
+					x: 0, y: 0, n: 0, raw: 0,
+				},
+				style: {},
+			}],
 		},
 		opts: {
 			myOpt1: 1337,
 			myOpt2: 'bar',
-			colors: defaultColors
-		}
+			colors: defaultColors,
+		},
 	})
 })
 
@@ -78,7 +78,7 @@ test('Loads iTerm2Colors', t => {
 		bgCyanBright: '#00ffcc',
 		bgWhiteBright: '#f9fdff',
 		backgroundColor: '#2c3e50',
-		foregroundColor: '#e0e0e0'
+		foregroundColor: '#e0e0e0',
 	})
 })
 
@@ -120,6 +120,6 @@ test('Can load color string', t => {
 		bgCyanBright: '#00ffcc',
 		bgWhiteBright: '#f9fdff',
 		backgroundColor: '#2c3e50',
-		foregroundColor: '#e0e0e0'
+		foregroundColor: '#e0e0e0',
 	})
 })

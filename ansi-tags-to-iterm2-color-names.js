@@ -40,5 +40,5 @@ module.exports = {
 	bgWhiteBright: 'Ansi 15 Color',
 
 	backgroundColor: 'Background Color',
-	foregroundColor: 'Foreground Color'
+	foregroundColor: 'Foreground Color',
 }

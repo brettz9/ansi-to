@@ -2,7 +2,6 @@
 
 const fs = require('fs')
 const path = require('path')
-
 const htmlColors = require('html-colors')
 
 const ansiHtmlColorTable = {
@@ -43,7 +42,7 @@ const ansiHtmlColorTable = {
 	bgWhiteBright: 'White',
 
 	backgroundColor: 'Black',
-	foregroundColor: 'LightGray'
+	foregroundColor: 'LightGray',
 }
 
 const colorMap = {}
